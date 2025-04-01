@@ -93,6 +93,9 @@ android {
             keyPassword 'android'
         }
     }
+    aaptOptions {
+        noCompress "bic"
+    }   
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -110,6 +113,14 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation files('../libs/ekyc_sdk-release-v3.5.3.aar')
+    implementation files('../libs/scanqr_ic_sdk-release-v1.0.5.aar')
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+    implementation 'com.airbnb.android:lottie:5.0.1'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
